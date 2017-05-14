@@ -11,6 +11,7 @@
   %body
     .container
       = render 'shared/header'
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+
+      %p.notice= notice
+      %p.alert= alert
+      = yield

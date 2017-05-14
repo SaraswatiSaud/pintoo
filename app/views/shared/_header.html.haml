@@ -1,8 +1,10 @@
-%nav.navbar.navbar-light.bg-faded.rounded.navbar-toggleable-md
-  %a.navbar-brand{href: '#'} Pintoo
+%nav.navbar.navbar-default.bg-faded.rounded.navbar-toggleable-md
+  = link_to 'Pintoo', root_url, class: 'navbar-brand'
+
   .collapse.navbar-collapse
-    .pull-md-right
-      %ul.navbar-nav
-        %li.nav-item.active
-          = link_to 'Contact', '#', class: 'nav-link'
-          
+    .float-md-right
+      %ul.nav.navbar-nav
+        %li.nav-item{class: (action_name == 'index' ? 'active' : '')}
+          = link_to 'Home', root_url, class: 'nav-link'
+        %li.nav-item{class: (action_name == 'contact' ? 'active' : '')}
+          = link_to 'Contact', contact_url, class: 'nav-link'

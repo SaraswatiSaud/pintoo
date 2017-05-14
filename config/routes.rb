@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'static_pages/contact'
-
   devise_for :users
   resources :websites
+
+  get '/contact', to: 'static_pages#contact'
   root to: 'static_pages#index'
 end
