@@ -4,14 +4,11 @@
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv': 'Content-Type' }
     %title Pintoo
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'restaurant', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }
 
   %body
-    .container
-      = render 'shared/header'
-
-      %p.notice= notice
-      %p.alert= alert
-      = yield
+    %p.notice= notice
+    %p.alert= alert
+    = yield
