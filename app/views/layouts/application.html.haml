@@ -12,6 +12,7 @@
     .container
       = render 'shared/header'
 
-      %p.notice= notice
-      %p.alert= alert
+      - flash.each do |key, value|
+        %div{class: "#{flash_class(key)}"}= value
+
       = yield
