@@ -8,3 +8,22 @@
     .col-md-12.form-group
       = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success'
       = link_to 'Log In', new_user_session_path, class: 'btn btn-primary'
+
+.row
+  %hr{:style => "padding-top:40px;"}
+  .col-md-2
+    %p Copyright © 2017 by ******
+  .col-md-2
+    = link_to 'Create your own website', '#'
+  .col-md-2
+    %p Privacy Policy
+  .col-md-2
+    %p All rights reserved
+  .col-md-1
+    %p Follow us:
+  .col-md-3{:style => "font-size:36px;"}
+    %a.fa.fa-instagram.tooltipped{:href => "#", :title => ""}
+    %a.fa.fa-google-plus-square.tooltipped{:href => "#", :title => ""}
+    %a.fa.fa-youtube-square.tooltipped{:href => "#", :title => ""}
+    %a.fa.fa-facebook-square.tooltipped{:href => "#", :title => ""}
+    %a.fa.fa-pinterest-square.tooltipped{:href => "#", :title => ""}
