@@ -1,1 +1,23 @@
-%h3= "Welcome #{current_user.email}!"
+.row
+  .col-md-3
+    %table.table
+      %tr
+        %th= link_to 'Dashboard', dashboard_path
+      %tr
+        %td= link_to 'Website', '#'
+      %tr
+        %td= link_to 'Reports', '#'
+  .col-md-9.center{:style => 'color:red;'}
+    %h3= "Welcome #{current_user.email}!"
+.row
+  .col-md-3
+  .col-md-9
+    %h5 Statistics
+    .jumbotron.center
+      %h3 Coming soon
+.row
+  .col-md-3
+  .col-md-9
+    %h5 Today's Visit
+    .jumbotron.center
+      %h3 Coming soon
