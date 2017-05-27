@@ -1,4 +1,4 @@
-class WebsitesController < ApplicationController
+class SitesController < ApplicationController
   def index
     render layout: 'restaurant'
   end
