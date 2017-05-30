@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :sites
+  resources :websites
 
   get '/contact', to: 'static_pages#contact'
   get '/dashboard', to: 'static_pages#dashboard'
