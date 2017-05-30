@@ -1,0 +1,14 @@
+.row
+  .col-md-3
+    = render 'shared/admin_menu'
+  .col-md-7
+    %h1= @website.name
+    %p
+      Subdomain:
+      = @website.subdomain
+    %p
+      Created at:
+      = @website.created_at
+    %p= link_to 'Back', websites_path, class: 'btn btn-primary'
+  .col-md-2
+    = render 'shared/website_setting'

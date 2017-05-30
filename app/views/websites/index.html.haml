@@ -1,0 +1,28 @@
+.row
+  .col-md-3
+    = render 'shared/admin_menu'
+  .col-md-9
+    %h1
+      Websites List
+      .pull-right
+        = link_to 'Add Website', new_website_path, class: 'btn btn-primary'
+.row
+  .col-md-3
+  .col-md-9
+    - if @websites.present?
+      %table.table
+        %tr
+          %th Website name
+          %th Sub Domain
+          %th
+        - @websites.each do |website|
+          %tr
+            %td= link_to website.name, website_path(website)
+            %td= website.subdomain
+            %td
+              = link_to '#', class: 'btn btn-primary btn-sm' do
+                = fa_icon 'pencil'
+              = link_to '#', class: 'btn btn-danger btn-sm' do
+                = fa_icon 'trash'
+    - else
+      No websites present.
