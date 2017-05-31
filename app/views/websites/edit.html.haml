@@ -1,12 +1,9 @@
 .row
   .col-md-3
     = render 'shared/admin_menu'
-  .col-md-9
-    %h1 Create new website
-.row
-  .col-md-3
-  .col-md-9
-    = form_for :website, url: websites_path do |f|
+  .col-md-7
+    %h1 Editing website
+    = form_for(@website) do |f|
       %table
         %tr
           %td Website Name:
@@ -16,5 +13,7 @@
           %td= f.text_field :subdomain, required: true
         %tr
           %td= f.submit
-    %br
+
     = link_to 'Back', websites_path, class: 'btn btn-primary'
+  .col-md-2
+    = render 'shared/website_setting'
