@@ -2,9 +2,19 @@
   .col-md-3
     = render 'shared/admin_menu'
   .col-md-9
-    %h1 Creating new website
+    %h1 Create new website
 .row
   .col-md-3
   .col-md-9
-  
+    = form_for :website, url: websites_path do |f|
+      %table
+        %tr
+          %td Website Name:
+          %td= f.text_field :name
+        %tr
+          %td Subdomain:
+          %td= f.text_field :subdomain
+        %tr
+          %td= f.submit
+    %br
     = link_to 'Back', websites_path, class: 'btn btn-primary'
