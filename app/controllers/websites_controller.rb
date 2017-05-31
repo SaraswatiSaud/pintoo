@@ -16,6 +16,16 @@ class WebsitesController < ApplicationController
     @website = current_user.websites.find(params[:id])
   end
 
+  def edit
+    @website = current_user.websites.find(params[:id])
+  end
+
+  def update
+    @website = current_user.websites.find(params[:id])
+    @website.update(website_params)
+    redirect_to websites_path
+  end
+
   private
   def website_params
     params.require(:website).permit(:name, :subdomain)

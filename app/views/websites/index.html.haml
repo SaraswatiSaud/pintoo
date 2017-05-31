@@ -20,7 +20,7 @@
             %td= link_to website.name, website_path(website)
             %td= website.subdomain
             %td
-              = link_to '#', class: 'btn btn-primary btn-sm' do
+              = link_to edit_website_path(website), class: 'btn btn-primary btn-sm' do
                 = fa_icon 'pencil'
               = link_to '#', class: 'btn btn-danger btn-sm' do
                 = fa_icon 'trash'

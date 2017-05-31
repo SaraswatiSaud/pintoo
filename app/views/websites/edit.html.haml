@@ -1,0 +1,19 @@
+.row
+  .col-md-3
+    = render 'shared/admin_menu'
+  .col-md-7
+    %h1 Editing website
+    = form_for(@website) do |f|
+      %table
+        %tr
+          %td Website Name:
+          %td= f.text_field :name
+        %tr
+          %td Subdomain:
+          %td= f.text_field :subdomain
+        %tr
+          %td= f.submit
+
+    = link_to 'Back', websites_path, class: 'btn btn-primary'
+  .col-md-2
+    = render 'shared/website_setting'
