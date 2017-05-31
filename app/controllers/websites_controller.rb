@@ -8,8 +8,11 @@ class WebsitesController < ApplicationController
 
   def create
     @website = current_user.websites.new(website_params)
-    @website.save
-    redirect_to @website
+    if @website.save
+      redirect_to @website
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -22,8 +25,11 @@ class WebsitesController < ApplicationController
 
   def update
     @website = current_user.websites.find(params[:id])
-    @website.update(website_params)
-    redirect_to websites_path
+    if @website.update(website_params)
+      redirect_to websites_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
