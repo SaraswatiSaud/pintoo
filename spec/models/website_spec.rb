@@ -15,6 +15,12 @@ RSpec.describe Website, type: :model do
     expect(@website).to_not be_valid
   end
 
+  it 'is invalid with duplicate name' do
+    website = Website.new(name: 'Website 1', subdomain: 'website2')
+    website.valid?
+    expect(website.errors[:name]).to include('has already been taken')
+  end
+
   it 'is valid if has 5 characters long name' do
     @website.name = '5 characters long'
     expect(@website).to be_valid
@@ -27,6 +33,22 @@ RSpec.describe Website, type: :model do
 
   it 'is invalid without subdomain' do
     @website.subdomain = nil
+    expect(@website).to_not be_valid
+  end
+
+  it 'is invalid with duplicate subdomain' do
+    website = Website.new(name: 'Website 2', subdomain: 'website1')
+    website.valid?
+    expect(website.errors[:subdomain]).to include('has already been taken')
+  end
+
+  it 'is valid if has 5 characters long subdomain' do
+    @website.subdomain = '5 characters long'
+    expect(@website).to be_valid
+  end
+
+  it 'is invalid if it not 5 characters long subdomain' do
+    @website.subdomain = 'four'
     expect(@website).to_not be_valid
   end
 
