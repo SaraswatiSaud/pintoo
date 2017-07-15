@@ -36,6 +36,12 @@ RSpec.describe User, type: :model do
   end
 
   it 'has many websites' do
-    expect(@user.websites).to eq([])
+    user1 = User.create(email: 'admin1@example.com', password: 'password')
+    w1 = Website.create(name: 'Website 1', subdomain: 'website1', user_id: @user.id)
+    w2 = Website.create(name: 'Website 2', subdomain: 'website2', user_id: @user.id)
+    w3 = Website.create(name: 'Website 3', subdomain: 'website3', user_id: user1.id)
+
+    expect(@user.websites).to include(w1, w2)
+    expect(@user.websites).to_not include(w3)
   end
 end
