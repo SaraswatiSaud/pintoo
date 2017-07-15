@@ -6,6 +6,7 @@
       Websites List
       .pull-right
         = link_to 'Add Website', new_website_path, class: 'btn btn-primary'
+    %h6{:style =>'color:red;'}= "Logged in by: #{current_user.email}"
 .row
   .col-md-3
   .col-md-9
