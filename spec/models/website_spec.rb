@@ -1,9 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Website, type: :model do
-  before(:each) do
-    @user = User.create(email: 'admin@example.com', password: 'password')
-    @website = Website.create(name: 'Website 1', subdomain: 'website1', user_id: @user.id)
+  it 'has a valid factory' do
+    expect(FactoryGirl.build(:website)).to be_valid
+  end
+
+  before do
+    @user = FactoryGirl.create(:user)
+    @website = FactoryGirl.create(:website, user_id: @user.id)
   end
 
   it 'it valid with name, subdomain and user_id' do
@@ -16,7 +20,7 @@ RSpec.describe Website, type: :model do
   end
 
   it 'is invalid with duplicate name' do
-    website = Website.new(name: 'Website 1', subdomain: 'website2')
+    website = FactoryGirl.build(:website, name: @website.name)
     website.valid?
     expect(website.errors[:name]).to include('has already been taken')
   end
@@ -37,7 +41,7 @@ RSpec.describe Website, type: :model do
   end
 
   it 'is invalid with duplicate subdomain' do
-    website = Website.new(name: 'Website 2', subdomain: 'website1')
+    website = FactoryGirl.build(:website, subdomain: @website.subdomain)
     website.valid?
     expect(website.errors[:subdomain]).to include('has already been taken')
   end
