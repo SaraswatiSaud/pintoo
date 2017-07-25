@@ -5,4 +5,9 @@ FactoryGirl.define do
     user_id 1
     association :user
   end
+
+  trait :invalid do
+    name nil
+    subdomain nil
+  end
 end
