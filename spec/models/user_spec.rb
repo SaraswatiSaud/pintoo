@@ -15,12 +15,14 @@ RSpec.describe User, type: :model do
 
   it 'is invalid without email' do
     @user.email = nil
-    expect(@user).to_not be_valid
+    @user.valid?
+    expect(@user.errors[:email]).to include("can't be blank")
   end
 
   it 'is invalid without password' do
     @user.password = nil
-    expect(@user).to_not be_valid
+    @user.valid?
+    expect(@user.errors[:password]).to include("can't be blank")
   end
 
   it 'is valid if contain atleast 5 characters long password' do

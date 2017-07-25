@@ -3,6 +3,6 @@ FactoryGirl.define do
     sequence(:name) { |n| "Website #{n}" }
     sequence(:subdomain) { |n| "website #{n}" }
     user_id 1
-    user
+    association :user
   end
 end
