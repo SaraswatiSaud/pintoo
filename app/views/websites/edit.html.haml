@@ -6,10 +6,10 @@
     = form_for(@website) do |f|
       %table
         %tr
-          %td Website Name:
+          %td= f.label :name
           %td= f.text_field :name, required: true
         %tr
-          %td Subdomain:
+          %td= f.label :subdomain
           %td= f.text_field :subdomain, required: true
         %tr
           %td= f.submit
