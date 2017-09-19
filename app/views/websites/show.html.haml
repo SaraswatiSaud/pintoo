@@ -9,6 +9,10 @@
     %p
       Created at:
       = @website.created_at
-    %p= link_to 'Back', websites_path, class: 'btn btn-primary'
+    %p
+      = link_to 'View Website', sites_path, class: 'btn btn-danger', style: 'margin-left: 50px;'
+    %p
+      = link_to 'Edit', edit_website_path, class: 'btn btn-primary'
+      = link_to 'Back', websites_path, class: 'btn btn-primary'
   .col-md-2
     = render 'shared/website_setting'

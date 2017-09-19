@@ -26,7 +26,7 @@ class WebsitesController < ApplicationController
   def update
     @website = current_user.websites.find(params[:id])
     if @website.update(website_params)
-      redirect_to websites_path
+      redirect_to website_path
     else
       render 'edit'
     end

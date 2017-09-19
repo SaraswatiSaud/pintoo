@@ -1,0 +1,16 @@
+.row
+  .col-md-3
+    = render 'shared/admin_menu'
+  .col-md-7
+    %h1
+      Add Page
+    = form_with scope: :pages, url: pages_path, local: true do |form|
+      %p
+        = form.label :name
+        %br/
+        = form.text_field :name
+      %p
+        = form.submit
+    = link_to 'Back', pages_path, class: 'btn btn-primary'
+  .col-md-2
+    = render 'shared/website_setting'

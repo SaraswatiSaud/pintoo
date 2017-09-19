@@ -2,18 +2,16 @@
   .col-md-3
     = render 'shared/admin_menu'
   .col-md-7
-    %h1 Editing website
-    = form_for(@website) do |f|
+    %h1 Editing page
+    = form_for(@page) do |f|
       %table
         %tr
           %td= f.label :name
           %td= f.text_field :name, required: true
-        %tr
-          %td= f.label :subdomain
-          %td= f.text_field :subdomain, required: true
+
         %tr
           %td= f.submit
 
-    = link_to 'Back', website_path, class: 'btn btn-primary'
+    = link_to 'Back', pages_path, class: 'btn btn-primary'
   .col-md-2
     = render 'shared/website_setting'
