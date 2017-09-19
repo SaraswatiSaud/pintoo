@@ -1,0 +1,393 @@
+#menu.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+  .container
+    .navbar-header.visible-xs
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"}
+        %h2 Meat King
+    / navbar-header
+    #navbar.navbar-collapse.collapse
+      #logo.hidden-xs
+        %a{:href => "#header"}
+          %h4
+            %center ResFrame
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{:href => "#story"} Story
+        %li
+          %a{:href => "#reservation"} Reservation
+        %li
+          %a{:href => "#chefs"} Our Chefs
+        %li
+          %a{:href => "#facts"} Facts
+        %li
+          %a{:href => "#food-menu"} Food Menu
+        %li
+          %a{:href => "#special-offser"} Special Offers
+        / fix for scroll spy active menu element
+        %li{:style => "display:none;"}
+          %a{:href => "#header"}
+#header{:style => "height: 650px; margin-top: -80px"}
+  .bg-overlay
+  .center.text-center{:style => "padding-top: 200px;"}
+    .banner
+      %h1 ResFrame
+    .subtitle
+      %h4 FREE RESTAURANT THEME
+  .bottom.text-center
+    %a#scrollDownArrow{:href => "#"}
+      %i.fa.fa-chevron-down
+
+- # Story
+#story.light-wrapper
+  %section.ss-style-top
+  .container.inner
+    %h2.section-title.text-center Our Story
+    %p.lead.main.text-center We're cooking delecious foods since 1879
+    .row.text-center.story
+      .col-sm-4
+        .col-wrapper
+          .icon-wrapper
+            %i.fa.fa-anchor
+          %h3 EST. 1879
+          %p Vivamus sagittis lacuson augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum ultricies vehicula.
+      .col-sm-4
+        .col-wrapper
+          .icon-wrapper
+            %i.fa.fa-cutlery
+          %h3 Cooking Traditions
+          %p Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient monte nascetur ultricies vehicula.
+      .col-sm-4
+        .col-wrapper
+          .icon-wrapper
+            %i.fa.fa-coffee
+          %h3 Food Quality
+          %p Curabitur blandit matti tempus porttitor. Donec id elit non mi porta ut gravida at eget metus. Consectetur adipiscing elit ultricies vehicula.
+  %section.ss-style-bottom
+- # Facts
+#facts.parallax.parallax2.facts
+  .container.inner
+    .row.text-center.services-3
+      .col-sm-3
+        .col-wrapper
+          .icon-border.bm10
+            %i.fa.fa-beer
+          %h4 796518
+          %p Mug of Beer Sold
+      .col-sm-3
+        .col-wrapper
+          .icon-border.bm10
+            %i.fa.fa-play-circle-o
+          %h4 39472
+          %p Movies Watched
+      .col-sm-3
+        .col-wrapper
+          .icon-border.bm10
+            %i.fa.fa-truck
+          %h4 2188764
+          %p Pizza Deleverd
+      .col-sm-3
+        .col-wrapper
+          .icon-border.bm10
+            %i.fa.fa-users
+          %h4 480523
+          %p Customers Worldwide
+- # Food Menu
+#food-menu.light-wrapper
+  %section.ss-style-top
+  .container.inner
+    %h2.section-title.text-center Food Menu
+    %p.lead.main.text-center There is no sincerer love than the love of food!
+    .row
+      .col-sm-3.col-md-3
+        .menu-images
+          = image_tag 'menu/hot-drinks.png', class: 'img-responsive img-thumbnail'
+        .menu-titles
+          %h1 Hot drinks
+        .menu-items
+          %ul
+            %li Espresso
+            %li Americano
+            %li Capuccino
+            %li Latte
+            %li Mocha
+            %li Hot Chocolate
+            %li Yummie Cafee
+            %li Fruit Tea
+      .col-sm-3.col-md-3
+        .menu-images= image_tag 'menu/ice-drinks.png', class: 'img-responsive img-thumbnail'
+        .menu-titles
+          %h1 Ice drinks
+        .menu-items
+          %ul
+            %li Ice Coffee
+            %li Americano
+            %li Latte
+            %li Vanilla Frappe
+            %li Espresso Frappe
+            %li Choco Frappe
+            %li Iced Chai
+            %li Fruit Fresh
+      .col-sm-3.col-md-3
+        .menu-images= image_tag 'menu/smoothies.png', class: 'img-responsive img-thumbnail'
+        .menu-titles
+          %h1 Smoothies
+        .menu-items
+          %ul
+            %li Mango
+            %li Strawberry
+            %li Blue Berry
+            %li Peach
+            %li Pineapple
+            %li Banana
+            %li Milkshake
+            %li Greens
+      .col-sm-3.col-md-3
+        .menu-images= image_tag 'menu/deserts.png', class: 'img-responsive img-thumbnail'
+        .menu-titles
+          %h1 Deserts
+        .menu-items
+          %ul
+            %li Cheesecake
+            %li Choco Pie
+            %li Pancakes
+            %li Muffins
+            %li Fruit Slices
+            %li Fruit Salad
+            %li Cream Cake
+            %li Ice Cream
+    .row
+      .col-sm-3.col-md-3
+        .menu-images= image_tag 'menu/cocktails.png', class: 'img-responsive img-thumbnail'
+        .menu-titles
+          %h1 Cocktails
+        .menu-items
+          %ul
+            %li Black Velvet
+            %li Gin Sour
+            %li Mojito
+            %li Long Island
+            %li Orgasm
+            %li Bloody Mary
+            %li Earthquake
+            %li Whisky Mac
+      .col-sm-3.col-md-3
+        .menu-images= image_tag 'menu/beer.png', class: 'img-responsive img-thumbnail'
+        .menu-titles
+          %h1 Beer
+        .menu-items
+          %ul
+            %li Lager
+            %li Blonde Beer
+            %li Black Beer
+            %li Blonde Ale
+            %li Pilsner
+            %li Lemon Beer
+            %li Unfiltered Beer
+            %li Non-Alcoholic
+      .col-sm-3.col-md-3
+        .menu-images= image_tag 'menu/wine.png', class: 'img-responsive img-thumbnail'
+        .menu-titles
+          %h1 Wine
+        .menu-items
+          %ul
+            %li Sweet Red
+            %li Dry Red
+            %li Sweet White
+            %li Dry White
+            %li Rose
+            %li Sparkling Wine
+            %li Fortified Wine
+            %li Frutty Red
+      .col-sm-3.col-md-3
+        .menu-images= image_tag 'menu/sprites.png', class: 'img-responsive img-thumbnail'
+        .menu-titles
+          %h1 Sprites
+        .menu-items
+          %ul
+            %li Whisky
+            %li Rum
+            %li Tequila
+            %li Gin
+            %li Champagne
+            %li Brandy
+            %li Absinthe
+            %li Liqueur
+  %section.ss-style-bottom
+- # Special offer
+#special-offser.parallax.pricing
+  .container.inner
+    %h2.section-title.text-center Special Offers
+    %p.lead.main.text-center There is no sincerer love than the love of food!
+    .row
+      .col-md-6.col-sm-6
+        .pricing-item
+          %a{:href => "#"}= image_tag 'dish/dish3.jpg', class: 'img-responsive img-thumbnail'
+          .pricing-item-details
+            %h3
+              %a{:href => "#"} Chicken Fried Rice
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            %a.btn.btn-danger{:href => "#"} Order now
+            .clearfix
+          %span.hot-tag.br-red $26
+          .clearfix
+      .col-md-6.col-sm-6
+        .pricing-item
+          %a{:href => "#"}= image_tag 'dish/dish2.jpg', class: 'img-responsive img-thumbnail'
+          .pricing-item-details
+            %h3
+              %a{:href => "#"} Hot Fried Chicken
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            %a.btn.btn-danger{:href => "#"} Order now
+            .clearfix
+          %span.hot-tag.br-lblue $37
+          .clearfix
+      .clearfix.visible-md
+      .col-md-6.col-sm-6
+        .pricing-item
+          %a{:href => "#"}= image_tag 'dish/dish4.jpg', class: 'img-responsive img-thumbnail'
+          .pricing-item-details
+            %h3
+              %a{:href => "#"} Thi Chicken Momo
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            %a.btn.btn-danger{:href => "#"} Order now
+            .clearfix
+          / price tag
+          %span.hot-tag.br-green $54
+          .clearfix
+      .col-md-6.col-sm-6
+        .pricing-item
+          %a{:href => "#"}= image_tag 'dish/dish1.jpg', class: 'img-responsive img-thumbnail'
+          .pricing-item-details
+            %h3
+              %a{:href => "#"} Cocktail Sushi
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            %a.btn.btn-danger{:href => "#"} Order now
+            .clearfix
+          / price tag
+          %span.hot-tag.br-red $27
+          .clearfix
+  / /.container
+/ /#special-offser
+- # Reservation
+#reservation.light-wrapper
+  %section.ss-style-top
+  .container.inner
+    %h2.section-title.text-center Reservation
+    %p.lead.main.text-center Reserve your table &amp; enjoy lorem Ipsum
+    .row
+      .col-md-6
+        %form.form.form-table{:method => "post", :name => ""}
+          .form-group
+            %h4 Fill the form for table reservation (all fields required)
+          .row
+            .col-lg-6.col-md-6.form-group
+              %label.sr-only{:for => "first_name1"} first name
+              %input#first_name1.form-control.hint{:name => "first_name", :placeholder => "First name", :required => "", :type => "text"}/
+            .col-lg-6.col-md-6.form-group
+              %label.sr-only{:for => "last_name1"} last name
+              %input#last_name1.form-control.hint{:name => "last_name", :placeholder => "Last name", :required => "", :type => "text"}/
+          .row
+            .col-lg-6.col-md-6.form-group
+              %label.sr-only{:for => "email1"} email
+              %input#email1.form-control.hint{:name => "email", :placeholder => "Email@domain.com", :required => "", :type => "email"}/
+            .col-lg-6.col-md-6.form-group
+              %label.sr-only{:for => "phone1"} phone
+              %input#phone1.form-control.hint{:name => "phone", :placeholder => "Phone", :required => "", :type => "text"}/
+          .row
+            .col-lg-6.col-md-6.form-group
+              %label.sr-only{:for => "reserv_date1"} reservation date
+              %input#reserv_date1.form-control.datepicker.hasDatepicker.hint{:name => "reserv_date", :placeholder => "Reservation date", :required => "", :type => "text"}/
+            .col-lg-6.col-md-6.form-group
+              %label.sr-only{:for => "numb_guests1"} number of guests
+              %input#numb_guests1.form-control.hint{:name => "numb_guests", :placeholder => "Number of guests", :required => "", :type => "text"}/
+          .row
+            .col-lg-6.col-md-6.form-group
+              %label.sr-only{:for => "alt_reserv_date1"} time from
+              %input#alt_reserv_date1.form-control.datepicker.hasDatepicker.hint{:name => "alt_reserv_date", :placeholder => "Time from", :required => "", :type => "text"}/
+            .col-lg-6.col-md-6.form-group
+              %label.sr-only{:for => "time1"} time
+              %input#time1.form-control.timepicker.ui-timepicker-input.hint{:autocomplete => "off", :name => "time", :placeholder => "Time to", :required => "", :type => "text"}/
+          .row
+            .col-lg-12.col-md-12
+              %p
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+          .row
+            .col-lg-12.col-md-12
+              %button.btn.btn-danger.btn-lg{:type => "submit"} Reserve!
+      / col-md-6
+      .col-md-5.col-md-offset-1
+        %h3
+          %i.fa.fa-clock-o.fa-fw>
+          Hours
+        %h4 Breakfast
+        %p
+          Mon to Fri: 7:30 AM - 11:30 AM
+          %br>/
+          Sat &amp; Sun: 8:00 AM - 9:00 AM
+        %h4 Lunch
+        %p Mon to Fri: 12:00 PM - 5:00 PM
+        %h4 Dinner
+        %p
+          Mon to Sat: 6:00 PM -  1:00 AM
+          %br>/
+          Sun: 5:30 PM - 12:00 AM
+        %h3
+          %i.fa.fa-map-marker.fa-fw>
+          Directions
+        %p 4120 Lenox Avenue, New York, NY, 10035 76 Saint Nicholas Avenue
+        %h3
+          %i.fa.fa-mobile.fa-fw>
+          Contacts
+        %p
+          Email:
+          %a{:href => "mailto:yourname@meatking.com"} yourname@meatking.com
+        %p Phone: +234 3456 678
+  %section.ss-style-bottom
+- # Chefs
+#chefs.parallax.pricing
+  .container.inner
+    %h2.section-title.text-center Our Chefs
+    %p.lead.main.text-center There is no sincerer love than the love of food!
+    .row.text-center.chefs
+      .col-sm-4
+        .col-wrapper
+          .icon-wrapper
+            / # Image
+          %h3 Saransh Goila
+          %p Vivamus sagittis lacuson augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum ultricies vehicula.
+      .col-sm-4
+        .col-wrapper
+          .icon-wrapper
+            / # Image
+          %h3 Jane Doe
+          %p Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient monte nascetur ultricies vehicula.
+      .col-sm-4
+        .col-wrapper
+          .icon-wrapper
+            / # Image
+          %h3 Anton Mosimann
+          %p Curabitur blandit matti tempus porttitor. Donec id elit non mi porta ut gravida at eget metus. Consectetur adipiscing elit ultricies vehicula.
+- # Footer
+%footer#footer.dark-wrapper
+  %section.ss-style-top
+  .container.inner
+    .row
+      .col-sm-6
+        © Copyright MeatKing 2014
+        = succeed "Theme" do
+          %br/
+        %a.themeBy{:href => "http://www.Themewagon.com"} ThemeWagon
+      .col-sm-6
+        .social-bar
+          %a.fa.fa-instagram.tooltipped{:href => "#", :title => ""}
+          %a.fa.fa-youtube-square.tooltipped{:href => "#", :title => ""}
+          %a.fa.fa-facebook-square.tooltipped{:href => "#", :title => ""}
+          %a.fa.fa-pinterest-square.tooltipped{:href => "#", :title => ""}
+          %a.fa.fa-google-plus-square.tooltipped{:href => "#", :title => ""}
