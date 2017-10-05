@@ -4,6 +4,7 @@ class WebsitesController < ApplicationController
   end
 
   def new
+    @website = current_user.websites.new
   end
 
   def create

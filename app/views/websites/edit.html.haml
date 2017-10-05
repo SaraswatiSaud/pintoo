@@ -9,13 +9,22 @@
     .row
       .col-md-8
         = form_for(@website) do |f|
+          - if @website.errors.any?
+            %div
+              %h2.alert.alert-danger
+                - pluralize(@website.errors.count, 'errors')
+                Prohibited from being saved:
+              %ul#error_listing
+                - @website.errors.full_messages.each do |msg|
+                  %li= msg
+
           .form-group
             = f.label :name
-            = f.text_field :name, required: true, class: 'form-control'
+            = f.text_field :name, class: 'form-control'
 
           .form-group
             = f.label :subdomain
-            = f.text_field :subdomain, required: true, class: 'form-control'
+            = f.text_field :subdomain, class: 'form-control'
 
           .form-group
             = f.submit class: 'btn btn-primary'

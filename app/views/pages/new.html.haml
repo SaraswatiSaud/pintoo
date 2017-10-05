@@ -2,15 +2,21 @@
   .col-md-3
     = render 'shared/admin_menu'
   .col-md-7
-    %h1
-      Add Page
-    = form_with scope: :pages, url: pages_path, local: true do |form|
+    %h1 Add Page
+    = form_for([@website, @website.pages.build]) do |form|
+      - if @page.errors.any?
+        %div#error_explanation
+          %h2
+            = pluralize(@page.errors.count, error)
+            Prohibited from being saved
+          %ul
+            - @page.errors.full_messages.each do |msg|
+              %li= msg
+
       %p
         = form.label :name
         %br/
         = form.text_field :name
       %p
         = form.submit
-    = link_to 'Back', pages_path, class: 'btn btn-primary'
-  .col-md-2
-    = render 'shared/website_setting'
+    = link_to 'Back', website_path(:id), class: 'btn btn-primary'

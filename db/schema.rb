@@ -47,6 +47,10 @@ ActiveRecord::Schema.define(version: 20171004152301) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "products", id: :integer, default: nil, force: :cascade do |t|
+    t.string "name", limit: 200
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -76,5 +80,6 @@ ActiveRecord::Schema.define(version: 20171004152301) do
     t.index ["user_id"], name: "index_websites_on_user_id"
   end
 
+  add_foreign_key "menus", "websites"
   add_foreign_key "websites", "users"
 end
