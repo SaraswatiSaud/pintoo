@@ -4,7 +4,8 @@
       %h1 Welcome to ResFrame
       %h3 Create your restaurant website for free.
 
-  .row
-    .col-md-12.form-group
-      = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success'
-      = link_to 'Log In', new_user_session_path, class: 'btn btn-primary'
+  - if !user_signed_in?
+    .row
+      .col-md-12.form-group
+        = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success'
+        = link_to 'Log In', new_user_session_path, class: 'btn btn-primary'
