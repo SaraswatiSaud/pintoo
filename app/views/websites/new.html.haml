@@ -2,19 +2,21 @@
   .col-md-3
     = render 'shared/admin_menu'
   .col-md-9
-    %h1 Create new website
-.row
-  .col-md-3
-  .col-md-9
-    = form_for :website, url: websites_path do |f|
-      %table
-        %tr
-          %td= f.label :name
-          %td= f.text_field :name, required: true
-        %tr
-          %td= f.label :subdomain
-          %td= f.text_field :subdomain, required: true
-        %tr
-          %td= f.submit
-    %br
-    = link_to 'Back', websites_path, class: 'btn btn-primary'
+    .page-header
+      %h3
+        Create new website
+        .pull-right= link_to '< Back', websites_path, class: 'btn btn-link'
+
+    .row
+      .col-md-8
+        = form_for :website, url: websites_path do |f|
+          .form-group
+            = f.label :name
+            = f.text_field :name, required: true, class: 'form-control'
+
+          .form-group
+            = f.label :subdomain
+            = f.text_field :subdomain, required: true, class: 'form-control'
+
+          .form-group
+            = f.submit class: 'btn btn-primary'

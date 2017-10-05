@@ -1,18 +1,47 @@
 .row
   .col-md-3
     = render 'shared/admin_menu'
-  .col-md-7
-    %h1= @website.name
-    %p
-      Subdomain:
-      = @website.subdomain
-    %p
-      Created at:
-      = @website.created_at
-    %p
-      = link_to 'View Website', sites_path, class: 'btn btn-danger', style: 'margin-left: 50px;'
-    %p
-      = link_to 'Edit', edit_website_path, class: 'btn btn-primary'
-      = link_to 'Back', websites_path, class: 'btn btn-primary'
-  .col-md-2
-    = render 'shared/website_setting'
+  .col-md-9
+    %h3.page-header
+      = @website.name
+      .pull-right
+        = link_to 'View Website', sites_path, class: 'btn btn-link', target: '_blank'
+        = link_to 'Edit', edit_website_path, class: 'btn btn-link'
+        = link_to '< Back', websites_path, class: 'btn btn-link'
+
+    .row
+      .col-md-6.form-group= "Subdomain: #{@website.subdomain}"
+      .col-md-6.form-group
+        .pull-right= "Created at: #{@website.created_at}"
+
+
+    .row
+      .col-md-6
+        %h4.page-header Menus
+
+        .form-group
+          No menu available.
+          = link_to 'Create Menu', '#', class: 'btn btn-link'
+
+        -# .list-group
+        -#   = link_to '#', class: 'list-group-item' do
+        -#     %span.badge 12
+        -#     = 'Abc'
+        -#
+        -#   = link_to '#', class: 'list-group-item' do
+        -#     %span.badge 3
+        -#     = 'Def'
+        -#
+        -#   = link_to '#', class: 'list-group-item' do
+        -#     %span.badge 0
+        -#     = 'Ghi'
+
+      .col-md-6
+        %h4.page-header Pages
+
+        .form-group
+          No pages available.
+          = link_to 'Create Page', '#', class: 'btn btn-link'
+
+    .row
+      .col-md-12= render 'shared/website_setting'
