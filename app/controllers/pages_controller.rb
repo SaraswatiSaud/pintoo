@@ -1,10 +1,22 @@
 class PagesController < ApplicationController
+  def index
+    @website = Website.find(params[:website_id])
+    @pages = @website.pages
+  end
+
+  def show
+    @website = Website.find(params[:website_id])
+    @page = @website.pages.find(params[:id])
+  end
+
   def new
-    @page = Page.new
+    @website = Website.find(params[:website_id])
+    @page = @website.pages.new
   end
 
   def create
-    @page = Page.new(pages_params)
+    @website = Website.find(params[:website_id])
+    @page = @website.pages.new(page_params)
     if @page.save
       redirect_to pages_path
     else
@@ -12,17 +24,15 @@ class PagesController < ApplicationController
     end
   end
 
-  def index
-    @pages = Page.all
-  end
-
   def edit
-    @page = Page.find(params[:id])
+    @website = Website.find(params[:website_id])
+    @page = @website.pages.find(params[:id])
   end
 
   def update
+    @website = Website.find(params[:website_id])
     @page = Page.find(params[:id])
-    if @page.update(pages_params)
+    if @page.update(page_params)
       redirect_to pages_path
     else
       render 'edit'
@@ -30,13 +40,14 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    @website = Website.find(params[:website_id])
     @page = Page.find(params[:id])
     @page.destroy
     redirect_to pages_path
   end
 
   private
-  def pages_params
+  def page_params
     params.require(:page).permit(:name)
   end
 end
