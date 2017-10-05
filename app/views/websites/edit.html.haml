@@ -1,19 +1,21 @@
 .row
   .col-md-3
     = render 'shared/admin_menu'
-  .col-md-7
-    %h1 Editing website
-    = form_for(@website) do |f|
-      %table
-        %tr
-          %td= f.label :name
-          %td= f.text_field :name, required: true
-        %tr
-          %td= f.label :subdomain
-          %td= f.text_field :subdomain, required: true
-        %tr
-          %td= f.submit
+  .col-md-9
+    %h3.page-header
+      Editing website
+      .pull-right= link_to '< Back', website_path, class: 'btn btn-link'
 
-    = link_to 'Back', website_path, class: 'btn btn-primary'
-  .col-md-2
-    = render 'shared/website_setting'
+    .row
+      .col-md-8
+        = form_for(@website) do |f|
+          .form-group
+            = f.label :name
+            = f.text_field :name, required: true, class: 'form-control'
+
+          .form-group
+            = f.label :subdomain
+            = f.text_field :subdomain, required: true, class: 'form-control'
+
+          .form-group
+            = f.submit class: 'btn btn-primary'

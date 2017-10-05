@@ -2,17 +2,16 @@
   .col-md-3
     = render 'shared/admin_menu'
   .col-md-9
-    .page-header
-      %h3
-        Websites
-        .pull-right
-          = link_to 'Add Website', new_website_path, class: 'btn btn-link'
+    %h3.page-header
+      Websites
+      .pull-right
+        = link_to 'Add Website', new_website_path, class: 'btn btn-link'
 
     .row
       .col-md-12
         - if @websites.present?
           %table.table
-            %tr
+            %tr.info
               %th Website name
               %th Sub Domain
               %th
