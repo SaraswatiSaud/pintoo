@@ -1,19 +1,4 @@
 class PagesController < ApplicationController
-  def index
-    @website = Website.find(params[:website_id])
-    @pages = @website.pages
-  end
-
-  def show
-    @website = Website.find(params[:website_id])
-    @page = @website.pages.find(params[:id])
-  end
-
-  def new
-    @website = Website.find(params[:website_id])
-    @page = @website.pages.new
-  end
-
   def create
     @website = Website.find(params[:website_id])
     @page = @website.pages.new(page_params)
@@ -48,6 +33,6 @@ class PagesController < ApplicationController
 
   private
   def page_params
-    params.require(:page).permit(:name)
+    params.require(:page).permit(:name, :path)
   end
 end
