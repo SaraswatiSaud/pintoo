@@ -2,28 +2,28 @@
   .col-md-3
     = render 'shared/admin_menu'
   .col-md-9
-    %h1
-      Websites List
-      .pull-right
-        = link_to 'Add Website', new_website_path, class: 'btn btn-primary'
-    %h6{:style =>'color:red;'}= "Logged in by: #{current_user.email}"
-.row
-  .col-md-3
-  .col-md-9
-    - if @websites.present?
-      %table.table
-        %tr
-          %th Website name
-          %th Sub Domain
-          %th
-        - @websites.each do |website|
-          %tr
-            %td= link_to website.name, website_path(website)
-            %td= website.subdomain
-            %td
-              = link_to edit_website_path(website), class: 'btn btn-primary btn-sm' do
-                = fa_icon 'pencil'
-              = link_to website_path(website), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do
-                = fa_icon 'trash'
-    - else
-      No websites present.
+    .page-header
+      %h3
+        Websites
+        .pull-right
+          = link_to 'Add Website', new_website_path, class: 'btn btn-link'
+
+    .row
+      .col-md-12
+        - if @websites.present?
+          %table.table
+            %tr
+              %th Website name
+              %th Sub Domain
+              %th
+            - @websites.each do |website|
+              %tr
+                %td= link_to website.name, website_path(website)
+                %td= website.subdomain
+                %td
+                  = link_to edit_website_path(website), class: 'btn btn-primary btn-sm' do
+                    = fa_icon 'pencil'
+                  = link_to website_path(website), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do
+                    = fa_icon 'trash'
+        - else
+          No websites present.
