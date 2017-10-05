@@ -70,3 +70,4 @@ end
 gem 'haml-rails', '~> 0.9'
 gem 'font-awesome-rails'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
+gem 'friendly_id'

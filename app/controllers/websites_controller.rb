@@ -7,7 +7,7 @@ class WebsitesController < ApplicationController
   end
 
   def create
-    @website = current_user.websites.new(website_params)
+    @website = current_user.websites.friendly.new(website_params)
     if @website.save
       redirect_to @website
     else
@@ -16,15 +16,15 @@ class WebsitesController < ApplicationController
   end
 
   def show
-    @website = current_user.websites.find(params[:id])
+    @website = current_user.websites.friendly.find(params[:id])
   end
 
   def edit
-    @website = current_user.websites.find(params[:id])
+    @website = current_user.websites.friendly.find(params[:id])
   end
 
   def update
-    @website = current_user.websites.find(params[:id])
+    @website = current_user.websites.friendly.find(params[:id])
     if @website.update(website_params)
       redirect_to website_path
     else

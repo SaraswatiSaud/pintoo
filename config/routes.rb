@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :sites
-  resources :websites
-  resources :menus
-  resources :pages
+  resources :websites do
+    resources :pages
+  end
+  resources :menu_items
 
 
   get '/contact', to: 'static_pages#contact'
