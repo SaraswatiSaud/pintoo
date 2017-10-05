@@ -31,7 +31,7 @@ class PagesController < ApplicationController
 
   def update
     @website = Website.find(params[:website_id])
-    @page = @website.pages.find(params[:id])
+    @page = Page.find(params[:id])
     if @page.update(page_params)
       redirect_to pages_path
     else

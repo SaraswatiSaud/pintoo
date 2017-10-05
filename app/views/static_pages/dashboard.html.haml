@@ -1,17 +1,18 @@
 .row
   .col-md-3
     = render 'shared/admin_menu'
-  .col-md-9.center{:style => 'color:red;'}
-    %h3= "Welcome #{current_user.email}!"
-.row
-  .col-md-3
   .col-md-9
-    %h5 Statistics
-    .jumbotron.center
-      %h3 Coming soon
-.row
-  .col-md-3
-  .col-md-9
-    %h5 Today's Visit
-    .jumbotron.center
-      %h3 Coming soon
+    .page-header
+      %h3 Dashboard
+
+    .row
+      .col-md-12
+        %h5 Statistics
+        .jumbotron.center
+          %h3 Coming soon
+
+    .row
+      .col-md-12
+        %h5 Today's Visit
+        .jumbotron.center
+          %h3 Coming soon

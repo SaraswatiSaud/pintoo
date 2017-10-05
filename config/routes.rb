@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   end
   resources :menu_items
 
-
   get '/contact', to: 'static_pages#contact'
   get '/dashboard', to: 'static_pages#dashboard'
+  get '/settings', to: 'static_pages#settings'
   root to: 'static_pages#index'
 end
