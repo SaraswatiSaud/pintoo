@@ -1,7 +1,8 @@
 class CreateMenuItems < ActiveRecord::Migration[5.1]
   def change
-    create_table :menu_items do |t|
-      t.string :title
+    create_table :menus do |t|
+      t.string :name
+      t.references :website, foreign_key: true
 
       t.timestamps
     end
