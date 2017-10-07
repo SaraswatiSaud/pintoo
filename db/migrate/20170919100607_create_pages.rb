@@ -2,7 +2,6 @@ class CreatePages < ActiveRecord::Migration[5.1]
   def change
     create_table :pages do |t|
       t.string :name
-      t.text :path
       t.references :website, foreign_key: true
 
       t.timestamps
