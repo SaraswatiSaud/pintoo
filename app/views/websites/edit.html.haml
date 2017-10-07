@@ -10,7 +10,7 @@
       .col-md-8
         = form_for(@website) do |f|
           - if @website.errors.any?
-            %div
+            %div#error_explanation
               %h2.alert.alert-danger
                 - pluralize(@website.errors.count, 'errors')
                 Prohibited from being saved:

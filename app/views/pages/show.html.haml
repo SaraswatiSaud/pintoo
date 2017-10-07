@@ -1,4 +1,14 @@
-%h1 Show page
-%p= @page.name
+.row
+  .col-md-3
+    = render 'shared/admin_menu'
+  .col-md-9
+    %h3.page-header
+      = @page.name
+      .pull-right
+        = link_to 'Edit', edit_website_page_path(@website), class: 'btn btn-link'
+        = link_to '< Back', website_path(@website), class: 'btn btn-link'
 
-= link_to '< Back', website_path(@website)
+    .row
+      .col-md-6.form-group
+        Created at: 
+        = @page.created_at

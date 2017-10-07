@@ -1,22 +1,26 @@
 .row
   .col-md-3
     = render 'shared/admin_menu'
-  .col-md-7
-    %h1 Add Page
-    = form_for([@website, @website.pages.build]) do |form|
-      - if @page.errors.any?
-        %div#error_explanation
-          %h2
-            = pluralize(@page.errors.count, error)
-            Prohibited from being saved
-          %ul
-            - @page.errors.full_messages.each do |msg|
-              %li= msg
+  .col-md-9
+    %h3.page-header
+      Create new page
+      .pull-right= link_to '< Back', website_path(@website), class: 'btn btn-link'
 
-      %p
-        = form.label :name
-        %br/
-        = form.text_field :name
-      %p
-        = form.submit
-    = link_to 'Back', website_pages_path(@website), class: 'btn btn-primary'
+    .row
+      .col-md-8
+        = form_for([@website, @website.pages.build]) do |form|
+          - if @page.errors.any?
+            %div#error_explanation
+              %h2.alert.alert-danger
+                = pluralize(@page.errors.count, 'error')
+                Prohibited from being saved
+              %ul#error_listing
+                - @page.errors.full_messages.each do |msg|
+                  %li= msg
+
+          .form-group
+            = form.label :name
+            = form.text_field :name, class: 'form-control'
+
+          .form-group
+            = form.submit class: 'btn btn-primary'
