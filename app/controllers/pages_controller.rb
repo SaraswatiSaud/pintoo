@@ -28,7 +28,7 @@ class PagesController < ApplicationController
     @website = Website.friendly.find(params[:website_id])
     @page = Page.friendly.find(params[:id])
     if @page.update(page_params)
-      redirect_to website_path(@website)
+      redirect_to website_page_path(@website)
     else
       render 'edit'
     end
