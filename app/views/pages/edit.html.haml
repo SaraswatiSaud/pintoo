@@ -1,15 +1,26 @@
 .row
   .col-md-3
     = render 'shared/admin_menu'
-  .col-md-7
-    %h1 Editing page
-    = form_for([@website, @page]) do |f|
-      %table
-        %tr
-          %td= f.label :name
-          %td= f.text_field :name, required: true
+  .col-md-9
+    %h3.page-header
+      Editing page
+      .pull-right= link_to '< Back', website_page_path(@website), class: 'btn btn-link'
 
-        %tr
-          %td= f.submit
+    .row
+      .col-md-8
+        = form_for([@website, @page]) do |f|
+          - if @page.errors.any?
+            %div#error_explanation
+              %h2.alert.alert-danger
+                = pluralize(@page.errors.count, 'error')
+                Prohibited from being saved:
+              %ul#error_listing
+                - @page.errors.full_messages.each do |msg|
+                  %li= msg
 
-    = link_to 'Back', website_pages_path(@website), class: 'btn btn-primary'
+          .form-group
+            = f.label :name
+            = f.text_field :name, class: 'form-control'
+
+          .form-group
+            = f.submit class: 'btn btn-primary'

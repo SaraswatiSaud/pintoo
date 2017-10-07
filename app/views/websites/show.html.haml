@@ -36,19 +36,19 @@
         -#     = 'Ghi'
 
       .col-md-6
-        %h4.page-header Pages
+        %h4.page-header
+          Pages
+          .pull-right= link_to 'Create Page', new_website_page_path(@website), class: 'btn btn-link'
 
         .form-group
           - if @website.pages.present?
-            %table.table
-              %tr
-                %th Name
+            .list-group
               - @website.pages.each do |page|
-                %tr
-                  %td= link_to page.name, website_page_path(@website, page)
-                  %td= link_to 'Edit', edit_website_page_path(@website, page)
-                  %td= link_to 'Delete', website_page_path(@website, page), method: :delete, data: { confirm: 'Are you sure?' }
+                %li.list-group-item
+                  = link_to page.name, website_page_path(@website, page)
+                  .pull-right= link_to 'Delete', website_page_path(@website, page), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link'
+                  .pull-right= link_to 'Edit', edit_website_page_path(@website, page), class: 'btn btn-link'
+
 
           - else
             No pages available.
-          = link_to 'Create Page', new_website_page_path(@website), class: 'btn btn-link'
