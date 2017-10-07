@@ -16,24 +16,20 @@
 
     .row
       .col-md-6
-        %h4.page-header Menus
+        %h4.page-header
+          Menus
+          .pull-right= link_to 'Create Menu', new_website_menu_path(@website), class: 'btn btn-link'
 
         .form-group
-          No menu available.
-          = link_to 'Create Menu', menu_items_path(:website_id), class: 'btn btn-link'
-
-        -# .list-group
-        -#   = link_to '#', class: 'list-group-item' do
-        -#     %span.badge 12
-        -#     = 'Abc'
-        -#
-        -#   = link_to '#', class: 'list-group-item' do
-        -#     %span.badge 3
-        -#     = 'Def'
-        -#
-        -#   = link_to '#', class: 'list-group-item' do
-        -#     %span.badge 0
-        -#     = 'Ghi'
+          - if @website.menus.present?
+            .list-group
+              - @website.menus.each do |menu|
+                %li.list-group-item
+                  = link_to menu.name, website_menu_path(@website, menu)
+                  .pull-right= link_to 'Delete', website_menu_path(@website, menu), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link'
+                  .pull-right= link_to 'Edit', edit_website_menu_path(@website, menu), class: 'btn btn-link'
+          - else
+            No menu available.
 
       .col-md-6
         %h4.page-header
@@ -48,7 +44,5 @@
                   = link_to page.name, website_page_path(@website, page)
                   .pull-right= link_to 'Delete', website_page_path(@website, page), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link'
                   .pull-right= link_to 'Edit', edit_website_page_path(@website, page), class: 'btn btn-link'
-
-
           - else
             No pages available.
