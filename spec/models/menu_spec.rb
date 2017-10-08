@@ -11,7 +11,7 @@ RSpec.describe Menu, type: :model do
     @menu = FactoryGirl.create(:menu, website_id: @website.id)
   end
 
-  it 'is valid with name, slug and website_id' do
+  it 'is valid with name and website_id' do
     expect(@menu).to be_valid
   end
 
