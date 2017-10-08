@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe WebsitesController, type: :controller do
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+    @website = FactoryGirl.create(:website, user: @user)
+    sign_in @user
+  end
+
   describe '#index' do
     context 'as an authorized user' do
-      before(:each) do
-        @user = FactoryGirl.create(:user)
-        @website = FactoryGirl.create(:website, user: @user)
-        sign_in @user
-      end
-
       it 'responds successfully' do
         get :index
         expect(response).to be_success
@@ -22,12 +22,6 @@ RSpec.describe WebsitesController, type: :controller do
   end
 
   describe '#show' do
-    before(:each) do
-      @user = FactoryGirl.create(:user)
-      @website = FactoryGirl.create(:website, user: @user)
-      sign_in @user
-    end
-
     it 'responds successfully' do
       get :show, params: { id: @website.id }
       expect(response).to be_success
@@ -35,39 +29,28 @@ RSpec.describe WebsitesController, type: :controller do
   end
 
   describe '#create' do
-    context 'as an authenticated user' do
-      before(:each) do
-        @user = FactoryGirl.create(:user)
+    context 'with valid attributes' do
+      it 'adds a new website' do
+        website_params = FactoryGirl.attributes_for(:website)
+        sign_in @user
+        expect {
+          post :create, params: { website: website_params }
+        }.to change(@user.websites, :count).by(1)
       end
+    end
 
-      context 'with valid attributes' do
-        it 'adds a new website' do
-          website_params = FactoryGirl.attributes_for(:website)
-          sign_in @user
-          expect {
-            post :create, params: { website: website_params }
-          }.to change(@user.websites, :count).by(1)
-        end
-      end
-
-      context 'with invalid attributes' do
-        it 'doesnot adds a website' do
-          website_params = FactoryGirl.attributes_for(:website, :invalid)
-          sign_in @user
-          expect {
-            post :create, params: { website: website_params }
-          }.to_not change(@user.websites, :count)
-        end
+    context 'with invalid attributes' do
+      it 'doesnot adds a website' do
+        website_params = FactoryGirl.attributes_for(:website, :invalid)
+        sign_in @user
+        expect {
+          post :create, params: { website: website_params }
+        }.to_not change(@user.websites, :count)
       end
     end
   end
 
   describe '#update' do
-    before(:each) do
-      @user = FactoryGirl.create(:user)
-      @website = FactoryGirl.create(:website, user: @user)
-    end
-
     it 'updates a website' do
       website_params = FactoryGirl.attributes_for(:website, name: 'New website name')
       sign_in @user
@@ -77,11 +60,6 @@ RSpec.describe WebsitesController, type: :controller do
   end
 
   describe '#destroy' do
-    before(:each) do
-      @user = FactoryGirl.create(:user)
-      @website = FactoryGirl.create(:website, user: @user)
-    end
-
     it 'destroys a website' do
       sign_in @user
       expect {
