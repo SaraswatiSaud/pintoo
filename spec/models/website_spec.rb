@@ -25,13 +25,13 @@ RSpec.describe Website, type: :model do
     expect(website.errors[:name]).to include('has already been taken')
   end
 
-  it 'is valid if has 5 characters long name' do
+  it 'is valid if has 3 characters long name' do
     @website.name = '5 characters long'
     expect(@website).to be_valid
   end
 
-  it 'is invalid if it not 5 characters long name' do
-    @website.name = 'four'
+  it 'is invalid if it not 3 characters long name' do
+    @website.name = 'ww'
     expect(@website).to_not be_valid
   end
 
@@ -46,13 +46,13 @@ RSpec.describe Website, type: :model do
     expect(website.errors[:subdomain]).to include('has already been taken')
   end
 
-  it 'is valid if has 5 characters long subdomain' do
-    @website.subdomain = '5 characters long'
+  it 'is valid if has 3 characters long subdomain' do
+    @website.subdomain = '3 characters long'
     expect(@website).to be_valid
   end
 
-  it 'is invalid if it not 5 characters long subdomain' do
-    @website.subdomain = 'four'
+  it 'is invalid if it not 3 characters long subdomain' do
+    @website.subdomain = 'ww'
     expect(@website).to_not be_valid
   end
 
