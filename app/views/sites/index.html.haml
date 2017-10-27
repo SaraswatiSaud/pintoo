@@ -276,51 +276,44 @@
 #reservation.light-wrapper
   %section.ss-style-top
   .container.inner
-    %h2.section-title.text-center Reservation
-    %p.lead.main.text-center Reserve your table &amp; enjoy lorem Ipsum
+    %h2.section-title.text-center Order Food
+    %p.lead.main.text-center Order your food with just few clicks
     .row
-      .col-md-6
+      .col-md-10.col-md-offset-3
         %form.form.form-table{:method => "post", :name => ""}
           .form-group
             %h4 Fill the form for table reservation (all fields required)
           .row
-            .col-lg-6.col-md-6.form-group
+            .col-lg-4.col-md-4.form-group
               %label.sr-only{:for => "first_name1"} first name
               %input#first_name1.form-control.hint{:name => "first_name", :placeholder => "First name", :required => "", :type => "text"}/
-            .col-lg-6.col-md-6.form-group
+            .col-md-4.form-group
               %label.sr-only{:for => "last_name1"} last name
               %input#last_name1.form-control.hint{:name => "last_name", :placeholder => "Last name", :required => "", :type => "text"}/
           .row
-            .col-lg-6.col-md-6.form-group
+            .col-sm-4.form-group
               %label.sr-only{:for => "email1"} email
               %input#email1.form-control.hint{:name => "email", :placeholder => "Email@domain.com", :required => "", :type => "email"}/
-            .col-lg-6.col-md-6.form-group
+            .col-sm-4.form-group
               %label.sr-only{:for => "phone1"} phone
               %input#phone1.form-control.hint{:name => "phone", :placeholder => "Phone", :required => "", :type => "text"}/
           .row
-            .col-lg-6.col-md-6.form-group
-              %label.sr-only{:for => "reserv_date1"} reservation date
-              %input#reserv_date1.form-control.datepicker.hasDatepicker.hint{:name => "reserv_date", :placeholder => "Reservation date", :required => "", :type => "text"}/
-            .col-lg-6.col-md-6.form-group
-              %label.sr-only{:for => "numb_guests1"} number of guests
-              %input#numb_guests1.form-control.hint{:name => "numb_guests", :placeholder => "Number of guests", :required => "", :type => "text"}/
+            .col-sm-4.form-group
+              %label.sr-only{:for => "reserv_date1"} order date
+              %input#reserv_date1.form-control.datepicker.hasDatepicker.hint{:name => "reserv_date", :placeholder => "Order date", :required => "", :type => "text"}/
+            .col-sm-4.form-group
+              %label.sr-only{:for => "numb_guests1"} number of items
+              %input#numb_guests1.form-control.hint{:name => "numb_guests", :placeholder => "Number of items", :required => "", :type => "text"}/
           .row
-            .col-lg-6.col-md-6.form-group
+            .col-sm-4.form-group
               %label.sr-only{:for => "alt_reserv_date1"} time from
-              %input#alt_reserv_date1.form-control.datepicker.hasDatepicker.hint{:name => "alt_reserv_date", :placeholder => "Time from", :required => "", :type => "text"}/
-            .col-lg-6.col-md-6.form-group
+              %input#alt_reserv_date1.form-control.datepicker.hasDatepicker.hint{:name => "alt_reserv_date", :placeholder => "Time", :required => "", :type => "text"}/
+            .col-sm-4.form-group
               %label.sr-only{:for => "time1"} time
-              %input#time1.form-control.timepicker.ui-timepicker-input.hint{:autocomplete => "off", :name => "time", :placeholder => "Time to", :required => "", :type => "text"}/
+              %input#time1.form-control.timepicker.ui-timepicker-input.hint{:autocomplete => "off", :name => "time", :placeholder => "Location", :required => "", :type => "text"}/
           .row
             .col-lg-12.col-md-12
-              %p
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
-          .row
-            .col-lg-12.col-md-12
-              %button.btn.btn-danger.btn-lg{:type => "submit"} Reserve!
+              %button.btn.btn-danger.btn-lg{:type => "submit"} Order!
       / col-md-6
       .col-md-5.col-md-offset-1
         %h3
