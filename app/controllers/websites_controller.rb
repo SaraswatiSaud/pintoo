@@ -34,7 +34,7 @@ class WebsitesController < ApplicationController
   end
 
   def destroy
-    @website = current_user.websites.find(params[:id])
+    @website = current_user.websites.friendly.find(params[:id])
     @website.destroy
     redirect_to websites_path
   end
