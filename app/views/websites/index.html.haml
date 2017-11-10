@@ -24,5 +24,8 @@
                     = fa_icon 'pencil'
                   = link_to website_path(website), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do
                     = fa_icon 'trash'
+          .center
+            = paginate @websites
+
         - else
           No websites present.

@@ -1,6 +1,6 @@
 class WebsitesController < ApplicationController
   def index
-    @websites = current_user.websites.order(id: :desc)
+    @websites = current_user.websites.order(id: :desc).page params[:page]
   end
 
   def new

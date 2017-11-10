@@ -72,3 +72,4 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'maste
 gem 'friendly_id'
 gem 'ckeditor'
 gem 'paperclip'
+gem 'kaminari'
