@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 ruby '2.4.1'
 gem 'rails', '~> 5.1.0'
@@ -63,12 +62,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
-gem 'bootstrap', '~> 4.0.0.alpha6'
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.3.3'
-end
+gem 'autoprefixer-rails' # It automatically adds the proper vendor prefixs to CSS code when it is compiled.
 
-gem 'haml-rails', '~> 0.9'
+gem 'tether-rails'
+
+gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
 gem 'friendly_id'
