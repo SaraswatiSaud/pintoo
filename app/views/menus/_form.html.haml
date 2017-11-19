@@ -1,0 +1,15 @@
+= form_for([@website, @menu]) do |f|
+  - if @menu.errors.any?
+    %div#error_explanation
+      %h2.alert.alert-danger
+        = pluralize(@menu.errors.count, 'error')
+        Prohibited from being saved:
+      %ul#error_listing
+        - @menu.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-primary'
