@@ -40,12 +40,6 @@ ActiveRecord::Schema.define(version: 20171026180828) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "menu_items", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "menus", force: :cascade do |t|
     t.string "name"
     t.bigint "website_id"
@@ -58,16 +52,13 @@ ActiveRecord::Schema.define(version: 20171026180828) do
 
   create_table "pages", force: :cascade do |t|
     t.string "name"
+    t.bigint "website_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "website_id"
     t.string "slug"
     t.text "content"
     t.index ["slug"], name: "index_pages_on_slug"
-  end
-
-  create_table "products", id: :integer, default: nil, force: :cascade do |t|
-    t.string "name", limit: 200
+    t.index ["website_id"], name: "index_pages_on_website_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,5 +91,6 @@ ActiveRecord::Schema.define(version: 20171026180828) do
   end
 
   add_foreign_key "menus", "websites"
+  add_foreign_key "pages", "websites"
   add_foreign_key "websites", "users"
 end
