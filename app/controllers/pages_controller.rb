@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Pages controller
 class PagesController < ApplicationController
   def new
     @website = Website.friendly.find(params[:website_id])
@@ -42,6 +45,7 @@ class PagesController < ApplicationController
   end
 
   private
+
   def page_params
     params.require(:page).permit(:name, :content)
   end
