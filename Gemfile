@@ -74,3 +74,4 @@ gem 'ckeditor'
 gem 'paperclip'
 gem 'kaminari'
 gem 'rails_admin', '~> 1.3'
+
