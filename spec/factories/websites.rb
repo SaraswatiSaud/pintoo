@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :website do
     sequence(:name) { |n| "Website #{n}" }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :menu do
     sequence(:name) { |n| "Menu #{n}" }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe WebsitesController, type: :controller do
@@ -33,9 +35,9 @@ RSpec.describe WebsitesController, type: :controller do
       it 'adds a new website' do
         website_params = FactoryGirl.attributes_for(:website)
         sign_in @user
-        expect {
+        expect do
           post :create, params: { website: website_params }
-        }.to change(@user.websites, :count).by(1)
+        end.to change(@user.websites, :count).by(1)
       end
     end
 
@@ -43,9 +45,9 @@ RSpec.describe WebsitesController, type: :controller do
       it 'doesnot adds a website' do
         website_params = FactoryGirl.attributes_for(:website, :invalid)
         sign_in @user
-        expect {
+        expect do
           post :create, params: { website: website_params }
-        }.to_not change(@user.websites, :count)
+        end.to_not change(@user.websites, :count)
       end
     end
   end
@@ -62,9 +64,9 @@ RSpec.describe WebsitesController, type: :controller do
   describe '#destroy' do
     it 'destroys a website' do
       sign_in @user
-      expect {
+      expect do
         delete :destroy, params: { id: @website.id }
-      }.to change(@user.websites, :count).by(-1)
+      end.to change(@user.websites, :count).by(-1)
     end
   end
 end

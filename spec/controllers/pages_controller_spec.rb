@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
@@ -20,18 +22,18 @@ RSpec.describe PagesController, type: :controller do
     context 'with valid attributes' do
       it 'creates a new page' do
         page_params = FactoryGirl.attributes_for(:page, name: 'New page name')
-        expect {
+        expect do
           post :create, params: { website_id: @website.id, id: @page.id, page: page_params }
-        }.to change(@website.pages, :count).by(1)
+        end.to change(@website.pages, :count).by(1)
       end
     end
 
     context 'with invalid attributes' do
       it 'doesnot creates a new page' do
         page_params = FactoryGirl.attributes_for(:page, :invalid)
-        expect {
+        expect do
           post :create, params: { website_id: @website.id, id: @page.id, page: page_params }
-        }.to_not change(@website.pages, :count)
+        end.to_not change(@website.pages, :count)
       end
     end
   end
@@ -48,9 +50,9 @@ RSpec.describe PagesController, type: :controller do
 
   describe '#destroy' do
     it 'destroys a page' do
-      expect {
+      expect do
         delete :destroy, params: { website_id: @website.id, id: @page.id }
-      }.to change(@website.pages, :count).by(-1)
+      end.to change(@website.pages, :count).by(-1)
     end
   end
 end

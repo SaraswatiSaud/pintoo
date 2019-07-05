@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -9,13 +11,13 @@ RSpec.describe User, type: :model do
     @user = FactoryGirl.create(:user)
   end
 
-########## Mixed Validation ##########
+  ########## Mixed Validation ##########
 
   it 'is valid with email and password' do
     expect(@user).to be_valid
   end
 
- ########## Email Validation ##########
+  ########## Email Validation ##########
 
   it 'is invalid without email' do
     @user.email = nil
@@ -30,7 +32,7 @@ RSpec.describe User, type: :model do
 
   it 'should accept valid email address' do
     valid_addresses = %w[user@example.com USER@foo.com U_S-ER@foo.bar.org
-                        first.last@foo.jp first+last@foo.com]
+                         first.last@foo.jp first+last@foo.com]
     valid_addresses.each do |valid_address|
       @user.email = valid_address
       expect(@user).to be_valid
@@ -39,7 +41,7 @@ RSpec.describe User, type: :model do
 
   it 'should reject invalid email address' do
     invalid_addresses = %w[user@example,com user_at_sign.com user.name@example.
-                          foo@bar_baz.com foo@bar+baz.com]
+                           foo@bar_baz.com foo@bar+baz.com]
     invalid_addresses.each do |invalid_address|
       @user.email = invalid_address
       expect(@user).to_not be_valid
@@ -59,7 +61,7 @@ RSpec.describe User, type: :model do
     expect(mixed_case_email.downcase).to eq(@user.reload.email)
   end
 
-########## Password Validation ##########
+  ########## Password Validation ##########
 
   it 'is invalid without password' do
     @user.password = nil
@@ -77,7 +79,7 @@ RSpec.describe User, type: :model do
     expect(@user).to_not be_valid
   end
 
-########## Other Validation ##########
+  ########## Other Validation ##########
 
   it 'has many websites' do
     user1 = FactoryGirl.create(:user, email: 'admin1@example.com')

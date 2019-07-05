@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :page do
     sequence(:name) { |n| "Page #{n}" }
