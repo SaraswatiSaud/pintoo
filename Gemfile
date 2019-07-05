@@ -46,6 +46,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'launchy', '~> 2.4.3'
   gem 'rubocop', '~> 0.72.0', require: false
+  gem 'simplecov', require: false, group: :test
 end
 
 group :development do
