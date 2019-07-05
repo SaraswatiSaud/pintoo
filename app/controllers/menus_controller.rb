@@ -2,13 +2,13 @@
 
 # Menus controller
 class MenusController < ApplicationController
+  before_action :find_menu
+
   def new
-    @website = Website.friendly.find(params[:website_id])
     @menu = @website.menus.new
   end
 
   def create
-    @website = Website.friendly.find(params[:website_id])
     @menu = @website.menus.new(menu_params)
     if @menu.save
       redirect_to website_menu_path(@website, @menu)
@@ -18,17 +18,14 @@ class MenusController < ApplicationController
   end
 
   def show
-    @website = Website.friendly.find(params[:website_id])
     @menu = @website.menus.friendly.find(params[:id])
   end
 
   def edit
-    @website = Website.friendly.find(params[:website_id])
     @menu = @website.menus.friendly.find(params[:id])
   end
 
   def update
-    @website = Website.friendly.find(params[:website_id])
     @menu = Menu.friendly.find(params[:id])
     if @menu.update(menu_params)
       redirect_to website_menu_path(@website)
@@ -38,13 +35,16 @@ class MenusController < ApplicationController
   end
 
   def destroy
-    @website = Website.friendly.find(params[:website_id])
     @menu = Menu.friendly.find(params[:id])
     @menu.destroy
     redirect_to website_path(@website)
   end
 
   private
+
+  def find_menu
+    @website = Website.friendly.find(params[:website_id])
+  end
 
   def menu_params
     params.require(:menu).permit(:name)
