@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Ckeditor Asset class
 class Ckeditor::Asset < ActiveRecord::Base
   include Ckeditor::Orm::ActiveRecord::AssetBase
 
