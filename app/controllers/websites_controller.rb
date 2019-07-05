@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Websites controller
 class WebsitesController < ApplicationController
   def index
     @websites = current_user.websites.order(id: :desc).page params[:page]
@@ -40,6 +43,7 @@ class WebsitesController < ApplicationController
   end
 
   private
+
   def website_params
     params.require(:website).permit(:name, :subdomain)
   end

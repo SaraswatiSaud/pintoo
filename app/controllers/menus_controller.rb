@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Menus controller
 class MenusController < ApplicationController
   def new
     @website = Website.friendly.find(params[:website_id])
@@ -42,6 +45,7 @@ class MenusController < ApplicationController
   end
 
   private
+
   def menu_params
     params.require(:menu).permit(:name)
   end
