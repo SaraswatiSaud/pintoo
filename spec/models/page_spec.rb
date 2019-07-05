@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Page, type: :model do
@@ -7,8 +9,8 @@ RSpec.describe Page, type: :model do
 
   before(:each) do
     @user = FactoryGirl.create(:user)
-    @website = FactoryGirl.create(:website, user_id: @user.id )
-    @page = FactoryGirl.create(:page, website_id: @website.id )
+    @website = FactoryGirl.create(:website, user_id: @user.id)
+    @page = FactoryGirl.create(:page, website_id: @website.id)
   end
 
   it 'is valid with name and website_id' do
@@ -43,7 +45,7 @@ RSpec.describe Page, type: :model do
   end
 
   it 'is invalid with duplicate page name for same website' do
-    page2 = Page.create(name: @page.name, slug: @page.slug, website_id: @website.id )
+    page2 = Page.create(name: @page.name, slug: @page.slug, website_id: @website.id)
     page2.valid?
     expect(page2.errors[:name]).to include('has already been taken')
   end
