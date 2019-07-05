@@ -43,6 +43,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.8.0'
   gem 'sqlite3'
   gem 'launchy', '~> 2.4.3'
+  gem 'rubocop', '~> 0.72.0', require: false
 end
 
 group :development do
