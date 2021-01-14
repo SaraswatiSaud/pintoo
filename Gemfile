@@ -76,4 +76,4 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'maste
 gem 'friendly_id'
 gem 'paperclip'
 gem 'kaminari'
-gem 'rails_admin', '~> 1.3'
+gem 'rails_admin', '~> 1.4'
